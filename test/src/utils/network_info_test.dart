@@ -11,7 +11,7 @@ main() {
 
   setUp(() {
     mockNetworkConnectionChecker = MockConnectivity();
-    sut = NetworkInfo(networkChecker: mockNetworkConnectionChecker);
+    sut = NetworkInfo.instanceFor(networkChecker: mockNetworkConnectionChecker);
   });
 
   test('should forward the call to Connectivity.checkConnectivity()', () async {
@@ -28,7 +28,7 @@ main() {
 
   test('should return TRUE if ConnectivityResult != None', () async {
     ///arrange
-    final tHasConnection = true;
+    const tHasConnection = true;
     when(() => mockNetworkConnectionChecker.checkConnectivity())
         .thenAnswer((_) async => await Future.value(ConnectivityResult.wifi));
 
@@ -41,7 +41,7 @@ main() {
   });
   test('should return FALSE if ConnectivityResult == None', () async {
     ///arrange
-    final tHasConnection = false;
+    const tHasConnection = false;
     when(() => mockNetworkConnectionChecker.checkConnectivity())
         .thenAnswer((_) async => await Future.value(ConnectivityResult.none));
 
