@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'network_info_interface.dart';
+import 'interfaces/network_info_interface.dart';
 
 /// class provides a single instance of NetworkInfo,
 /// providing connectivity status through the
@@ -9,7 +9,6 @@ import 'network_info_interface.dart';
 ///
 /// The NetworkInfo class currently uses uses the connectivity_plus package
 /// to determine connectivity status
-
 class NetworkInfo implements INetworkInfo {
   final Connectivity networkChecker;
 

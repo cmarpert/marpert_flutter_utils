@@ -1,17 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+/// Creates a Text Widget that highlights a given text passage
+///
+/// Each match of [textToHighlight] in [text] can be highlighted with
+/// an optional [highlightTextColor] and [highlightBackgroundColor]
+///
+/// The non-highlighted text can by styled as in a normal Text-Widget via the
+/// [style] argument
+///
+/// [caseSensitive] defaults to 'true', but can be changed to 'false'
 class HighlightText extends StatelessWidget {
-  /// Creates a Text Widget that highlights a given text passage
-  ///
-  /// Each match of [textToHighlight] in [text] can be highlighted with
-  /// an optional [highlightTextColor] and [highlightBackgroundColor]
-  ///
-  /// The non-highlighted text can by styled as in a normal Text-Widget via the
-  /// [style] argument
-  ///
-  /// [caseSensitive] defaults to 'true', but can be changed to 'false'
-
   final String text;
   final String? textToHighlight;
   final TextStyle? style;
