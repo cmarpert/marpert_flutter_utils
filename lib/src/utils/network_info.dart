@@ -1,6 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'network_info_interface.dart';
+
 /// class provides a single instance of NetworkInfo,
 /// providing connectivity status through the
 /// getter [isConnected]
@@ -8,7 +10,7 @@ import 'package:flutter/cupertino.dart';
 /// The NetworkInfo class currently uses uses the connectivity_plus package
 /// to determine connectivity status
 
-class NetworkInfo {
+class NetworkInfo implements INetworkInfo {
   final Connectivity networkChecker;
 
   // private constructor, class cannot be instantiated, only through static getter
@@ -26,6 +28,7 @@ class NetworkInfo {
     return NetworkInfo.instanceFor(networkChecker: networkCheckerInstance);
   }
 
+  @override
   Future<bool> get isConnected async {
     ConnectivityResult connectivityResult = ConnectivityResult.none;
     connectivityResult = await networkChecker.checkConnectivity();
