@@ -76,7 +76,7 @@ class HighlightText extends StatelessWidget {
     final textSpans = _getProcessedTextSpans();
     return RichText(
       key: const Key('HighlightedText'),
-      text: TextSpan(children: textSpans),
+      text: TextSpan(children: textSpans, style: style),
     );
   }
 
