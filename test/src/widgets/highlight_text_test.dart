@@ -34,8 +34,7 @@ void main() {
 
     // Pump the widget tree to render the HighlightText widget.
     await tester.pumpWidget(MaterialApp(home: sut));
-    await tester.pumpAndSettle();
-    //debugDumpApp();
+    debugDumpApp();
 
     ///assert
     // Find the HighlightText widget in the widget tree.
@@ -86,8 +85,6 @@ void main() {
 
     // Pump the widget tree to render the HighlightText widget.
     await tester.pumpWidget(MaterialApp(home: sut));
-    await tester.pumpAndSettle();
-    //debugDumpApp();
 
     ///assert
     // Find the HighlightText widget in the widget tree.
@@ -138,8 +135,6 @@ void main() {
 
     // Pump the widget tree to render the HighlightText widget.
     await tester.pumpWidget(MaterialApp(home: sut));
-    await tester.pumpAndSettle();
-    //debugDumpApp();
 
     ///assert
     // Find the HighlightText widget in the widget tree.
@@ -164,7 +159,7 @@ void main() {
     });
   });
 
-  testWidgets('HighlightText widget test - tTextToHighlight is Empty', (WidgetTester tester) async {
+  testWidgets('HighlightText widget test - textToHighlight is Empty', (WidgetTester tester) async {
     /// arrange
 
     const tText = 'This is some text';
@@ -187,8 +182,7 @@ void main() {
 
     // Pump the widget tree to render the HighlightText widget.
     await tester.pumpWidget(MaterialApp(home: sut));
-    await tester.pumpAndSettle();
-    //debugDumpApp();
+    // debugDumpApp();
 
     ///assert
     // Find the HighlightText widget in the widget tree.

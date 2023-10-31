@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class HighlightText extends StatelessWidget {
@@ -67,5 +68,17 @@ class HighlightText extends StatelessWidget {
       key: const Key('HighlightedText'),
       text: TextSpan(children: textSpans),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('text', text));
+    properties.add(StringProperty('textToHighlight', textToHighlight));
+    properties.add(DiagnosticsProperty<TextStyle>('style', style));
+    style?.debugFillProperties(properties);
+    properties.add(ColorProperty('highlightBackgroundColor', highlightBackgroundColor));
+    properties.add(ColorProperty('highlightTextColor', highlightTextColor));
+    properties.add(DiagnosticsProperty<bool>('caseSensitive', caseSensitive));
   }
 }
