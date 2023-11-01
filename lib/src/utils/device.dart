@@ -30,36 +30,36 @@ enum DeviceOrientationsAllowed {
   final List<DeviceOrientation> list;
 }
 
-class Device {
+class DeviceUtils {
   final Size size;
   final Function(List<DeviceOrientation>) _orientationSetter;
   DeviceOrientationsAllowed _deviceOrientationsAllowed = DeviceOrientationsAllowed.all;
 
-  Device._({required this.size, required Function(List<DeviceOrientation>) orientationSetter})
+  DeviceUtils._({required this.size, required Function(List<DeviceOrientation>) orientationSetter})
       : _orientationSetter = orientationSetter;
 
   // for testing -> SystemChrome.setPreferredOrientation can be replaced with Fake, since class is abstract and cannot be mocked
   @visibleForTesting
-  static Device instanceFor({required size, required orientationSetter}) {
-    return Device._(size: size, orientationSetter: orientationSetter);
+  static DeviceUtils instanceFor({required size, required orientationSetter}) {
+    return DeviceUtils._(size: size, orientationSetter: orientationSetter);
   }
 
-  factory Device({required size}) {
+  factory DeviceUtils({required size}) {
     const orientationSetter = SystemChrome.setPreferredOrientations;
-    return Device._(size: size, orientationSetter: orientationSetter);
+    return DeviceUtils._(size: size, orientationSetter: orientationSetter);
   }
 
-  static  Device fromMediaQuery(){
+  static DeviceUtils get fromMediaQuery {
     final deviceData = MediaQueryData.fromView(WidgetsBinding.instance.platformDispatcher.views.single);
     const orientationSetter = SystemChrome.setPreferredOrientations;
-    return Device._(size: deviceData.size, orientationSetter: orientationSetter);
+    return DeviceUtils._(size: deviceData.size, orientationSetter: orientationSetter);
   }
 
   // Bildshirm:                 930 * 1680
   // Tablet Lenovo:            1280 *  752
   // Handy Samsung Galaxy A53 : 866 *  441
 
-  DeviceType get type {
+  DeviceType get deviceType {
     if (size.longestSide >= 1500) {
       return DeviceType.laptop;
     } else if (size.longestSide >= 1000) {

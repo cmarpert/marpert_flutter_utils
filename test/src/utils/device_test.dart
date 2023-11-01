@@ -9,10 +9,10 @@ main() {
       double tWidth = 750;
       double tHeight = 500;
 
-      final sut = Device(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils(size: Size(tWidth, tHeight));
 
       ///act
-      final result = sut.type;
+      final result = sut.deviceType;
 
       ///assert
       expect(result, DeviceType.mobile);
@@ -22,10 +22,10 @@ main() {
       double tWidth = 500;
       double tHeight = 750;
 
-      final sut = Device(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils(size: Size(tWidth, tHeight));
 
       ///act
-      final result = sut.type;
+      final result = sut.deviceType;
 
       ///assert
       expect(result, DeviceType.mobile);
@@ -38,10 +38,10 @@ main() {
       double tWidth = 1000;
       double tHeight = 500;
 
-      final sut = Device(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils(size: Size(tWidth, tHeight));
 
       ///act
-      final result = sut.type;
+      final result = sut.deviceType;
 
       ///assert
       expect(result, DeviceType.tablet);
@@ -51,10 +51,10 @@ main() {
       double tWidth = 500;
       double tHeight = 1000;
 
-      final sut = Device(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils(size: Size(tWidth, tHeight));
 
       ///act
-      final result = sut.type;
+      final result = sut.deviceType;
 
       ///assert
       expect(result, DeviceType.tablet);
@@ -66,10 +66,10 @@ main() {
       double tWidth = 1500;
       double tHeight = 500;
 
-      final sut = Device(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils(size: Size(tWidth, tHeight));
 
       ///act
-      final result = sut.type;
+      final result = sut.deviceType;
 
       ///assert
       expect(result, DeviceType.laptop);
@@ -79,10 +79,10 @@ main() {
       double tWidth = 500;
       double tHeight = 1500;
 
-      final sut = Device(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils(size: Size(tWidth, tHeight));
 
       ///act
-      final result = sut.type;
+      final result = sut.deviceType;
 
       ///assert
       expect(result, DeviceType.laptop);
@@ -110,7 +110,7 @@ main() {
     ''', () async {
       /// arrange
 
-      final sut = Device.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
+      final sut = DeviceUtils.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
 
       /// act
       await sut.setOrientationToPortraitOnly();
@@ -123,7 +123,7 @@ main() {
     ''', () async {
       /// arrange
 
-      final sut = Device.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
+      final sut = DeviceUtils.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
 
       /// act
       await sut.setOrientationToLandscapeOnly();
@@ -136,7 +136,7 @@ main() {
     ''', () async {
       /// arrange
 
-      final sut = Device.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
+      final sut = DeviceUtils.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
 
       /// act
       await sut.setOrientationToAll();
