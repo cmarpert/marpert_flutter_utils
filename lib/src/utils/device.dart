@@ -10,10 +10,30 @@ enum DeviceType {
   final String name;
 }
 
+enum DeviceOrientationsAllowed {
+  all([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]),
+  landscapeOnly([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]),
+  portraitOnly([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  const DeviceOrientationsAllowed(this.list);
+  final List<DeviceOrientation> list;
+}
+
 class Device {
   final Size size;
   final Function(List<DeviceOrientation>) _orientationSetter;
-  List<DeviceOrientation> _deviceOrientations = _allOrientations;
+  DeviceOrientationsAllowed _deviceOrientationsAllowed = DeviceOrientationsAllowed.all;
 
   Device._({required this.size, required Function(List<DeviceOrientation>) orientationSetter})
       : _orientationSetter = orientationSetter;
@@ -43,35 +63,38 @@ class Device {
     }
   }
 
-  static final List<DeviceOrientation> _allOrientations = [
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
-  ];
-  static final List<DeviceOrientation> _orientationsLandscapeOnly = [
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
-  ];
-  static final List<DeviceOrientation> _orientationsPortraitOnly = [
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ];
+  // static final List<DeviceOrientation> _allOrientations = [
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  //   DeviceOrientation.landscapeLeft,
+  //   DeviceOrientation.landscapeRight,
+  // ];
+  // static final List<DeviceOrientation> _orientationsLandscapeOnly = [
+  //   DeviceOrientation.landscapeLeft,
+  //   DeviceOrientation.landscapeRight,
+  // ];
+  // static final List<DeviceOrientation> _orientationsPortraitOnly = [
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ];
 
-  List<DeviceOrientation> get deviceOrientations => _deviceOrientations;
+  DeviceOrientationsAllowed get deviceOrientations => _deviceOrientationsAllowed;
 
   Future<void> setOrientationToLandscapeOnly() async {
-    await _orientationSetter(_orientationsLandscapeOnly);
-    _deviceOrientations = _orientationsLandscapeOnly;
+    const allowed = DeviceOrientationsAllowed.landscapeOnly;
+    await _orientationSetter(allowed.list);
+    _deviceOrientationsAllowed = allowed;
   }
 
   Future<void> setOrientationToPortraitOnly() async {
-    await _orientationSetter(_orientationsLandscapeOnly);
-    _deviceOrientations = _orientationsPortraitOnly;
+    const allowed = DeviceOrientationsAllowed.portraitOnly;
+    await _orientationSetter(allowed.list);
+    _deviceOrientationsAllowed = allowed;
   }
 
   Future<void> setOrientationToAll() async {
-    await _orientationSetter(_orientationsLandscapeOnly);
-    _deviceOrientations = _allOrientations;
+    const allowed = DeviceOrientationsAllowed.all;
+    await _orientationSetter(allowed.list);
+    _deviceOrientationsAllowed = allowed;
   }
 }
