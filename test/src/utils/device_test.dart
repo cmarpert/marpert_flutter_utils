@@ -116,7 +116,7 @@ main() {
       await sut.setOrientationToPortraitOnly();
 
       /// assert
-      expect(sut.deviceOrientations, DeviceOrientationsAllowed.portraitOnly);
+      expect(sut.deviceOrientationsAllowed, DeviceOrientationsAllowed.portraitOnly);
     });
 
     test('''setOrientationToLandscapeOnly
@@ -129,7 +129,7 @@ main() {
       await sut.setOrientationToLandscapeOnly();
 
       /// assert
-      expect(sut.deviceOrientations, DeviceOrientationsAllowed.landscapeOnly);
+      expect(sut.deviceOrientationsAllowed, DeviceOrientationsAllowed.landscapeOnly);
     });
 
     test('''setOrientationToAll
@@ -142,7 +142,7 @@ main() {
       await sut.setOrientationToAll();
 
       /// assert
-      expect(sut.deviceOrientations, DeviceOrientationsAllowed.all);
+      expect(sut.deviceOrientationsAllowed, DeviceOrientationsAllowed.all);
     });
   });
 }

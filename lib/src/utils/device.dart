@@ -49,6 +49,12 @@ class Device {
     return Device._(size: size, orientationSetter: orientationSetter);
   }
 
+  static  Device fromMediaQuery(){
+    final deviceData = MediaQueryData.fromView(WidgetsBinding.instance.platformDispatcher.views.single);
+    const orientationSetter = SystemChrome.setPreferredOrientations;
+    return Device._(size: deviceData.size, orientationSetter: orientationSetter);
+  }
+
   // Bildshirm:                 930 * 1680
   // Tablet Lenovo:            1280 *  752
   // Handy Samsung Galaxy A53 : 866 *  441
@@ -78,7 +84,7 @@ class Device {
   //   DeviceOrientation.portraitDown,
   // ];
 
-  DeviceOrientationsAllowed get deviceOrientations => _deviceOrientationsAllowed;
+  DeviceOrientationsAllowed get deviceOrientationsAllowed => _deviceOrientationsAllowed;
 
   Future<void> setOrientationToLandscapeOnly() async {
     const allowed = DeviceOrientationsAllowed.landscapeOnly;
