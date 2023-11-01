@@ -4,7 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-/// this method takes a screenshot an retunrs it as a byte Uint8List
+/// this method takes a screenshot an returns it as a byte Uint8List
 /// The target widget must be wrapped in a RepaintBoundary Widget and given
 /// the key [widgetKey]
 Future<Uint8List?> takeScreenshot(GlobalKey widgetKey) async {
