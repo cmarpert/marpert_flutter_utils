@@ -9,7 +9,7 @@ main() {
       double tWidth = 750;
       double tHeight = 500;
 
-      final sut = DeviceUtils(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
 
       ///act
       final result = sut.deviceType;
@@ -22,7 +22,7 @@ main() {
       double tWidth = 500;
       double tHeight = 750;
 
-      final sut = DeviceUtils(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
 
       ///act
       final result = sut.deviceType;
@@ -38,7 +38,7 @@ main() {
       double tWidth = 1000;
       double tHeight = 500;
 
-      final sut = DeviceUtils(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
 
       ///act
       final result = sut.deviceType;
@@ -51,7 +51,7 @@ main() {
       double tWidth = 500;
       double tHeight = 1000;
 
-      final sut = DeviceUtils(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
 
       ///act
       final result = sut.deviceType;
@@ -66,7 +66,7 @@ main() {
       double tWidth = 1500;
       double tHeight = 500;
 
-      final sut = DeviceUtils(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
 
       ///act
       final result = sut.deviceType;
@@ -79,7 +79,7 @@ main() {
       double tWidth = 500;
       double tHeight = 1500;
 
-      final sut = DeviceUtils(size: Size(tWidth, tHeight));
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
 
       ///act
       final result = sut.deviceType;
@@ -110,7 +110,8 @@ main() {
     ''', () async {
       /// arrange
 
-      final sut = DeviceUtils.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
+      final sut = DeviceUtils.instanceForTestingOnly(
+          size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
 
       /// act
       await sut.setOrientationToPortraitOnly();
@@ -123,7 +124,8 @@ main() {
     ''', () async {
       /// arrange
 
-      final sut = DeviceUtils.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
+      final sut = DeviceUtils.instanceForTestingOnly(
+          size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
 
       /// act
       await sut.setOrientationToLandscapeOnly();
@@ -136,7 +138,8 @@ main() {
     ''', () async {
       /// arrange
 
-      final sut = DeviceUtils.instanceFor(size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
+      final sut = DeviceUtils.instanceForTestingOnly(
+          size: Size.zero, orientationSetter: (List<DeviceOrientation> _) {});
 
       /// act
       await sut.setOrientationToAll();

@@ -40,11 +40,11 @@ class DeviceUtils {
 
   // for testing -> SystemChrome.setPreferredOrientation can be replaced with Fake, since class is abstract and cannot be mocked
   @visibleForTesting
-  static DeviceUtils instanceFor({required size, required orientationSetter}) {
+  static DeviceUtils instanceForTestingOnly({required size, required orientationSetter}) {
     return DeviceUtils._(size: size, orientationSetter: orientationSetter);
   }
 
-  factory DeviceUtils({required size}) {
+  factory DeviceUtils.fromSize({required size}) {
     const orientationSetter = SystemChrome.setPreferredOrientations;
     return DeviceUtils._(size: size, orientationSetter: orientationSetter);
   }
@@ -69,23 +69,9 @@ class DeviceUtils {
     }
   }
 
-  // static final List<DeviceOrientation> _allOrientations = [
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown,
-  //   DeviceOrientation.landscapeLeft,
-  //   DeviceOrientation.landscapeRight,
-  // ];
-  // static final List<DeviceOrientation> _orientationsLandscapeOnly = [
-  //   DeviceOrientation.landscapeLeft,
-  //   DeviceOrientation.landscapeRight,
-  // ];
-  // static final List<DeviceOrientation> _orientationsPortraitOnly = [
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown,
-  // ];
-
   DeviceOrientationsAllowed get deviceOrientationsAllowed => _deviceOrientationsAllowed;
 
+  /// set allowed Orientations and rotate for device instances
   Future<void> setOrientationToLandscapeOnly() async {
     const allowed = DeviceOrientationsAllowed.landscapeOnly;
     await _orientationSetter(allowed.list);
@@ -102,5 +88,14 @@ class DeviceUtils {
     const allowed = DeviceOrientationsAllowed.all;
     await _orientationSetter(allowed.list);
     _deviceOrientationsAllowed = allowed;
+  }
+
+  ///Rotate without creating an instance, -> static methods
+  static Future<void> toLandscape() async {
+    await SystemChrome.setPreferredOrientations(DeviceOrientationsAllowed.landscapeOnly.list);
+  }
+
+  static Future<void> toPortrait() async {
+    await SystemChrome.setPreferredOrientations(DeviceOrientationsAllowed.portraitOnly.list);
   }
 }
