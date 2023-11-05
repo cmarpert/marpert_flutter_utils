@@ -11,7 +11,7 @@ main() {
 
   setUp(() {
     mockNetworkConnectionChecker = MockConnectivity();
-    sut = NetworkInfo.instanceFor(networkChecker: mockNetworkConnectionChecker);
+    sut = NetworkInfo.instanceForTesting(networkChecker: mockNetworkConnectionChecker);
   });
 
   test('should forward the call to Connectivity.checkConnectivity()', () async {

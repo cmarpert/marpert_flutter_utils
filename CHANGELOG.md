@@ -1,3 +1,19 @@
-## 0.0.1
+# Changelog
 
-* TODO: Describe initial release.
+All notable changes to this project will be documented in this file.
+
+
+## [Unreleased]
+- nothing
+
+## [0.0.11] - 2023-11-05
+
+### Added
+
+- Device: added convenience getters, isMobile, isTablet, isLaptop
+
+### Fixed
+
+### Changed
+
+### Removed

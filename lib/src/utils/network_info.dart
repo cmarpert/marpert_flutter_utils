@@ -17,14 +17,14 @@ class NetworkInfo implements INetworkInfo {
 
   // for testing -> inject mockNetworkChecker
   @visibleForTesting
-  static NetworkInfo instanceFor({required Connectivity networkChecker}) {
+  static NetworkInfo instanceForTesting({required Connectivity networkChecker}) {
     return NetworkInfo._(networkChecker: networkChecker);
   }
 
   // for normal use
   static NetworkInfo get instance {
     final networkCheckerInstance = Connectivity();
-    return NetworkInfo.instanceFor(networkChecker: networkCheckerInstance);
+    return NetworkInfo._(networkChecker: networkCheckerInstance);
   }
 
   @override

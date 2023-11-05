@@ -71,6 +71,11 @@ class DeviceUtils {
 
   DeviceOrientationsAllowed get deviceOrientationsAllowed => _deviceOrientationsAllowed;
 
+  // convenience getters
+  bool get isMobile => deviceType == DeviceType.mobile;
+  bool get isTablet => deviceType == DeviceType.tablet;
+  bool get isLaptop => deviceType == DeviceType.laptop;
+
   /// set allowed Orientations and rotate for device instances
   Future<void> setOrientationToLandscapeOnly() async {
     const allowed = DeviceOrientationsAllowed.landscapeOnly;

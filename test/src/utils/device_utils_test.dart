@@ -30,10 +30,23 @@ main() {
       ///assert
       expect(result, DeviceType.mobile);
     });
+    test('''getter isMobile''', () async {
+      double tWidth = 750;
+      double tHeight = 500;
+
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
+
+      ///act
+
+      ///assert
+      expect(sut.isMobile, isTrue);
+      expect(sut.isTablet, isFalse);
+      expect(sut.isLaptop, isFalse);
+    });
   });
 
   group('tablet', () {
-    test('given width = 1000, height = 500, type should return mobile', () {
+    test('given width = 1000, height = 500, type should return tablet', () {
       ///arrange
       double tWidth = 1000;
       double tHeight = 500;
@@ -58,6 +71,19 @@ main() {
 
       ///assert
       expect(result, DeviceType.tablet);
+    });
+    test('''getter isTablet''', () async {
+      double tWidth = 1000;
+      double tHeight = 500;
+
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
+
+      ///act
+
+      ///assert
+      expect(sut.isMobile, isFalse);
+      expect(sut.isTablet, isTrue);
+      expect(sut.isLaptop, isFalse);
     });
   });
   group('laptop', () {
@@ -86,6 +112,19 @@ main() {
 
       ///assert
       expect(result, DeviceType.laptop);
+    });
+    test('''getter isLaptop''', () async {
+      double tWidth = 1500;
+      double tHeight = 500;
+
+      final sut = DeviceUtils.fromSize(size: Size(tWidth, tHeight));
+
+      ///act
+
+      ///assert
+      expect(sut.isMobile, isFalse);
+      expect(sut.isTablet, isFalse);
+      expect(sut.isLaptop, isTrue);
     });
   });
 
