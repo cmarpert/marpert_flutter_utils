@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'interfaces/network_info_interface.dart';
+import 'package:marpert_utils/marpert_utils.dart';
 
 /// class provides a single instance of NetworkInfo,
 /// providing connectivity status through the
