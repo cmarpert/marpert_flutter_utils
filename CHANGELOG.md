@@ -5,7 +5,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - nothing
-- ## [0.0.12] - 2023-11-10
+
+## [0.0.12] - 2023-11-10
 
 dependency upddate
 
