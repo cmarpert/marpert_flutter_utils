@@ -1,6 +1,6 @@
 name: marpert_flutter_utils
 description: Custom Flutter Widgets and Functions
-version: 0.0.12
+version: 0.0.13
 homepage:
 
 environment:
@@ -15,7 +15,7 @@ dependencies:
   marpert_utils:
     git:
       url: https://github.com/cmarpert/marpert_utils.git
-      ref: 1.1.0
+      ref: 1.1.1
 
 
 dev_dependencies:
