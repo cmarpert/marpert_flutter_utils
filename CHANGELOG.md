@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - nothing
-- 
+ 
+## [0.0.14] - 2023-11-12
+dependency update marpert_utils to v1.1.2
+
 ## [0.0.13] - 2023-11-10
 dependency update marpert_utils to v1.1.1
 
