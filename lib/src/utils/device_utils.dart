@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,7 +31,7 @@ enum DeviceOrientationsAllowed {
   final List<DeviceOrientation> list;
 }
 
-class DeviceUtils {
+class DeviceUtils extends Equatable {
   final Size size;
   final Function(List<DeviceOrientation>) _orientationSetter;
   DeviceOrientationsAllowed _deviceOrientationsAllowed = DeviceOrientationsAllowed.all;
@@ -103,4 +104,7 @@ class DeviceUtils {
   static Future<void> toPortrait() async {
     await SystemChrome.setPreferredOrientations(DeviceOrientationsAllowed.portraitOnly.list);
   }
+
+  @override
+  List<Object?> get props => [size, deviceType, deviceOrientationsAllowed];
 }
