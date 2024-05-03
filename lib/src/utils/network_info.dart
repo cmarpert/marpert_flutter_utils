@@ -28,8 +28,10 @@ class NetworkInfo implements INetworkInfo {
 
   @override
   Future<bool> get isConnected async {
-    ConnectivityResult connectivityResult = ConnectivityResult.none;
-    connectivityResult = await networkChecker.checkConnectivity();
-    return connectivityResult != ConnectivityResult.none;
+    //ConnectivityResult connectivityResult = ConnectivityResult.none;
+    final connectivityResult = await networkChecker.checkConnectivity();
+
+    return connectivityResult.contains(ConnectivityResult.wifi) ||
+        connectivityResult.contains(ConnectivityResult.mobile);
   }
 }

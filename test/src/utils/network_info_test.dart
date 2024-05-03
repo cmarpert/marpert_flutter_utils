@@ -17,7 +17,7 @@ main() {
   test('should forward the call to Connectivity.checkConnectivity()', () async {
     ///arrange
     when(() => mockNetworkConnectionChecker.checkConnectivity())
-        .thenAnswer((_) async => await Future.value(ConnectivityResult.wifi));
+        .thenAnswer((_) async => await Future.value([ConnectivityResult.wifi]));
 
     ///act
     final result = await sut.isConnected;
@@ -30,7 +30,7 @@ main() {
     ///arrange
     const tHasConnection = true;
     when(() => mockNetworkConnectionChecker.checkConnectivity())
-        .thenAnswer((_) async => await Future.value(ConnectivityResult.wifi));
+        .thenAnswer((_) async => await Future.value([ConnectivityResult.wifi]));
 
     ///act
     final result = await sut.isConnected;
@@ -43,7 +43,7 @@ main() {
     ///arrange
     const tHasConnection = false;
     when(() => mockNetworkConnectionChecker.checkConnectivity())
-        .thenAnswer((_) async => await Future.value(ConnectivityResult.none));
+        .thenAnswer((_) async => await Future.value([ConnectivityResult.none]));
 
     ///act
     final result = await sut.isConnected;
