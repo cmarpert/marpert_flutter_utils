@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - nothing
+
+## [0.0.17] - 2024-05-15
+- Dependency update
  
 ## [0.0.15] - 2023-12-06
 - DeviceUtils extend Equatable 
