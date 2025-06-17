@@ -6,8 +6,13 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 - nothing
 
-## [0.0.17] - 2024-07-23
+
+## [0.0.20] - 2025-06-17
+-dependency updates
+
+## [0.0.18] - 2024-07-23
 - Dependency update
+
 
 ## [0.0.17] - 2024-05-15
 - Dependency update
